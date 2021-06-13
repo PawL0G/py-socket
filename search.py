@@ -14,9 +14,12 @@ def search(file_name: str, criteria: str) -> Any:
             if criteria in line:
                 if count < 10:
                     for j in lines[i:i + 1]:
-                        print(f'Line in {file_name} #{i}: '+j)
+                        print(f'Line in {file_name} #{i}: ' + j)
                         count += 1
 
 
 if __name__ == "__main__":
-    search('data.txt', '#update')
+    # get 10 event from broadcast server in buffered text
+    # filter types: category, user, time
+    criteria_dict = {'category': '#update', 'user': '@all', 'time': '13/06/2021 11:05:43'}
+    search('data.txt', criteria_dict.get('user'))
